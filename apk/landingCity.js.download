@@ -1,0 +1,93 @@
+var swiper = new Swiper(".myVideo", {
+	slidesPerView: 1.9,
+	spaceBetween: 20,
+	loop: true,
+	centeredSlides: true,
+
+	breakpoints: {
+		768: {
+			spaceBetween: 00,
+		},
+		576: {
+			slidesPerView: 1,
+			spaceBetween: 00,
+		}
+	}
+});
+
+
+$('.popup-youtube ').magnificPopup({
+	//disableOn: 700,
+	type: 'iframe',
+	mainClass: 'mfp-fade',
+	removalDelay: 160,
+	preloader: false,
+
+	fixedContentPos: false
+});
+// as seen on starts
+var swiper = new Swiper(".myTeam", {
+	slidesPerView: 2,
+	spaceBetween: 80,
+	navigation: {
+		nextEl: ".team-next",
+		prevEl: ".team-prev",
+	},
+
+	breakpoints: {
+		768: {
+			spaceBetween: 40,
+		},
+		576: {
+			slidesPerView: 1,
+			spaceBetween: 40,
+		}
+	}
+});
+// as seen on ends
+
+// testimonials starts
+var swiper = new Swiper('.testimonials', {
+	slidesPerView: 2,
+	spaceBetween: 0,
+	navigation: {
+		nextEl: '.testimonials-next',
+		prevEl: '.testimonials-prev',
+	},
+	breakpoints: {
+		576: {
+			slidesPerView: 1,
+		}
+	}
+});
+// testimonials ends
+var waypoint = new Waypoint({
+	element: document.getElementById('animate-num'),
+	handler: function (direction) {
+
+		var counter = function ($this) {
+			var maxNum = Math.abs(parseInt($this.text()));
+			var i = 0;
+			var repeat = maxNum / 50;
+
+			setInterval(function () {
+
+				$this.text(parseInt(i += repeat));
+
+				if (i > maxNum) {
+					$this.text(parseInt(maxNum));
+					return;
+				}
+
+			}, 30);
+		}
+
+		$(".counting").each(function (index, element) {
+			counter($(element));
+		});
+		this.destroy()
+
+	},
+	offset: '80%'
+})
+// animate number js ends
